@@ -42,13 +42,9 @@ def circle(start, end):
     up()
     goto(start.x, start.y)
     down()
-    begin_fill()
     
-    """Fill circle"""
-
-    
-    end_fill()
-    pass  # TODO
+    """Draw Circle"""
+    dot((end.x - start.x)*2)
 
 
 def rectangle(start, end):
@@ -73,6 +69,18 @@ def rectangle(start, end):
 
 def triangle(start, end):
     """Draw triangle from start to end."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    """Fill triangle"""
+    goto(end.x, end.y)
+    goto((end.x)+(end.x-start.x), start.y)
+    goto(start.x, start.y)
+
+    end_fill()
+
     pass  # TODO
 
 
