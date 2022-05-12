@@ -16,7 +16,6 @@ from freegames import vector
 
 def line(start, end):
     """Draw line from start to end."""
-    color()
     up()
     goto(start.x, start.y)
     down()
@@ -25,7 +24,6 @@ def line(start, end):
 
 def square(start, end):
     """Draw square from start to end."""
-    color()
     up()
     goto(start.x, start.y)
     down()
@@ -41,14 +39,20 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    color()
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
     
+    """Fill circle"""
+
+    
+    end_fill()
     pass  # TODO
 
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    color()
     up()
     goto(start.x, start.y)
     down()
@@ -69,7 +73,6 @@ def rectangle(start, end):
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    color()
     pass  # TODO
 
 
@@ -101,6 +104,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('pink'), 'P')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
