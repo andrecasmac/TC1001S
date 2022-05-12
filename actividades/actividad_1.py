@@ -44,8 +44,10 @@ def circle(start, end):
     down()
     
     """Draw Circle"""
-    dot((end.x - start.x)*2)
-
+    if start.x < end.x:
+        dot((end.x - start.x)*2)
+    else:
+        dot((start.x - end.x)*2)
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
