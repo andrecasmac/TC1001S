@@ -10,12 +10,22 @@ Exercises
 
 from random import randrange
 from turtle import *
+import random
 
 from freegames import square, vector
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+
+"""Definimos los colores"""
+colors = ["blue", "green", "purple", "black", "yellow"]
+bodyColor = colors[random.randint(0,4)]
+foodColor = colors[random.randint(0,4)]
+
+"""Se crea condicional para que el cuerpo y la comida tengan diferente color"""
+while foodColor == bodyColor:
+    foodColor = colors[random.randint(0,4)]
 
 
 def change(x, y):
@@ -51,9 +61,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, bodyColor)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, foodColor)
     update()
     ontimer(move, 100)
 
