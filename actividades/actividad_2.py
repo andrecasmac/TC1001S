@@ -19,7 +19,7 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 """Definimos los colores"""
-colors = ["blue", "green", "purple", "black", "yellow"]
+colors = ["blue", "green", "purple", "black", "orange"]
 bodyColor = colors[random.randint(0,4)]
 foodColor = colors[random.randint(0,4)]
 
@@ -56,6 +56,15 @@ def move():
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
     else:
+        movimiento = random.randint(0,20)
+        if movimiento == 0:
+            food.x += 10
+        elif movimiento == 1:
+            food.x -= 10
+        elif movimiento == 2:
+            food.y += 10
+        elif movimiento == 3:
+            food.y -= 10
         snake.pop(0)
 
     clear()
