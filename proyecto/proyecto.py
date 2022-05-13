@@ -76,7 +76,7 @@ def encontrar(lista):
             return v
         else: 
             continue
-
+        
 
 def arriba():
     posicion = encontrar(mapa)
@@ -129,3 +129,15 @@ def derecha():
         tracer(False)
         world() 
         done()
+
+
+setup(700, 700)
+hideturtle()
+while comparador == True:
+    tracer(False)
+    world()  
+    listen() 
+    onkeypress(arriba, 'w')
+    onkeypress(abajo, 's')
+    onkeypress(derecha, 'd')
+    onkeypress(izquierda, 'a')
