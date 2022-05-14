@@ -14,11 +14,11 @@ A01254180
 ## ACTIVIDADES
 Realizamos algunas actividades en donde le agregamos funciones a diferentes juegos, para acostumbrarnos a la librearía turtle.
 Estas actividades fueron:
--Actividad 1: Un juego para dibujar donde agregamos colores y figuras nuevas.
--Actividad 2: El juego de la víbora al cual le cambiamos los colores, y hicimos que la comida se moviera.
--Actividad 3: Juego de Pacman donde cambiamos el tablero.
--Actividad 4: Un juego de proyectilos donde cambiamos la velocidad, y que fuera infinito.
--Actividad 5: Un juego de memoria donde contamos el número de taps.
+- Actividad 1: Un juego para dibujar donde agregamos colores y figuras nuevas.
+- Actividad 2: El juego de la víbora al cual le cambiamos los colores, y hicimos que la comida se moviera.
+- Actividad 3: Juego de Pacman donde cambiamos el tablero.
+- Actividad 4: Un juego de proyectilos donde cambiamos la velocidad, y que fuera infinito.
+- Actividad 5: Un juego de memoria donde contamos el número de taps.
 
 
 ## PROYECTO
