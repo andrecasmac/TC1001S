@@ -6,7 +6,7 @@
 # A01254831 - Luis Carlos Rico Almada
 
 # Proyecto TC1001S - Laberinto
-
+#Se importan librerias
 from turtle import *
 from freegames import floor, vector
 import random
@@ -75,28 +75,61 @@ mapa2 = [
     0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0,
 ]
-
+mapa3 = [
+    3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,
+    0,1,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,0,0,
+    0,1,1,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,
+    0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,
+    0,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,0,
+    0,1,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,
+    0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,0,
+    0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,1,0,1,0,
+    0,1,1,1,1,1,1,1,1,1,0,4,0,1,1,1,1,1,1,1,0,1,0,1,0,
+    0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,
+    0,1,0,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0,
+    0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,
+    0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0,
+    0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,
+    0,1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,0,
+    0,1,0,0,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,
+    0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,0,1,1,1,0,
+    0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,
+    0,1,0,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,0,1,0,
+    0,1,0,1,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,1,0,1,0,
+    0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,0,
+    0,1,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,
+    0,1,0,1,0,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+]
 
 # Se selecciona de manera aleatoria el mapa
 # Hecho por: Luis Rico
-n_random = random.randint(0,1)
+n_random = random.randint(0,2)
 if n_random == 0:
     mapa = mapa1
 elif n_random == 1:
     mapa = mapa2
+elif n_random == 2:
+    mapa = mapa3
+
+def Pantalla_win(): #Pantalla final, cuando llegas al cuadro amarrillo aparece esta pantalla
+    setup(700, 700) #Hecho por: Luis Rico
+    bgcolor("black")
+    write("GANASTE, FEELICIDADES, COMPLETASTE EL MAPA", color("white"), font=("Arial",20,"normal"),align="center")
 
 # Funcion para dibujar un cuadrado en el mundo
-# Hecho por: Marco Montoya
+# Hecho por: Angel Marin
 def square(x, y):
-    "Draw square using path at (x, y)."
+
     path.up()
     path.goto(x, y)
     path.down()
     path.begin_fill()
 
     for count in range(4):  # Se dibuja el cuadro por partes
-        path.forward(24)
-        path.left(90)
+        path.forward(24) #dimension del cuadrado
+        path.left(90) #angulo del cuadrado
 
     path.end_fill()
 
@@ -104,8 +137,8 @@ def square(x, y):
 # Se crea el "mundo" usando las funciones de turtle
 # Hecho por: Ángel Marín
 def world():
-    "Draw world using path."
-    bgcolor('chartreuse3')
+
+    bgcolor('chartreuse3') #color del fondo
 
     for index in range(len(mapa)):
         tile = mapa[index]
@@ -154,11 +187,11 @@ def arriba():
         mapa[posicion-25] = 2
         mapa[posicion] = 1
         llave = True
-    elif (mapa[posicion-25] == 3 and llave == True):
+    elif (mapa[posicion-25] == 3 and llave == True): #Cuando el personaje llega a la puerta
         mapa[posicion-25] = 2
         mapa[posicion] = 1
         tracer(False)
-        world()         
+        Pantalla_win() #Se inicia la pantalla de finalizar
         done()  # Se acaba el juego
 
 def izquierda():
@@ -175,7 +208,7 @@ def izquierda():
         mapa[posicion-1] = 2
         mapa[posicion] = 1
         tracer(False)
-        world() 
+        Pantalla_win() 
         done()
 
 def abajo():
@@ -192,7 +225,7 @@ def abajo():
         mapa[posicion+25] = 2
         mapa[posicion] = 1
         tracer(False)
-        world() 
+        Pantalla_win()
         done()
 
 def derecha():
@@ -209,13 +242,13 @@ def derecha():
         mapa[posicion+1] = 2
         mapa[posicion] = 1
         tracer(False)
-        world() 
+        Pantalla_win() 
         done()
 
 
 
 # Se genera la ventana del turtle
-# Hecho por: Ángel Marín
+# Hecho por: Marco Montoya
 setup(700, 700)
 hideturtle()
 
